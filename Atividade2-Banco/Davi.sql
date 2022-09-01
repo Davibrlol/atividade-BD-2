@@ -1,7 +1,8 @@
--- Gera��o de Modelo f�sico
+-- Gera��o de Modelo f�sico
 -- Sql ANSI 2003 - brModelo.
 
-
+create database Davi;
+use Davi;
 
 CREATE TABLE midia (
 titulo_midia varchar(100) not null,
@@ -66,7 +67,7 @@ email_ong varchar(250) not null unique ,
 telefone_ong varchar(14) not null,
 nome_ong varchar(100) not null,
 cod_ong int auto_increment PRIMARY KEY
-);
+);lucasoli
 
 ALTER TABLE midia ADD FOREIGN KEY(cod_postagem) REFERENCES postagem (cod_postagem);
 ALTER TABLE comenta ADD FOREIGN KEY(cod_postagem) REFERENCES postagem (cod_postagem);
@@ -78,3 +79,32 @@ ALTER TABLE curtir ADD FOREIGN KEY(cod_usuario) REFERENCES usuario (cod_usuario)
 ALTER TABLE postagem ADD FOREIGN KEY(cod_usuario) REFERENCES usuario (cod_usuario);
 ALTER TABLE postagem ADD FOREIGN KEY(cod_ong) REFERENCES ong (cod_ong);
 ALTER TABLE doacao ADD FOREIGN KEY(cod_ong) REFERENCES ong (cod_ong);
+
+
+insert into tipo_usuario (desc_tipuser) values
+('Comum'),
+('Administrador');
+
+insert into usuario (nome, email, telefone, idade, cod_tipuser) values
+("José Henrique", "josehenri@gmail.com", "(11)96887-4330", "20", 2),
+("Lucas Oliveira", "lucasoli@gmail.com", "(47)86217-2370", "32", 1),
+("Vinicius Souza", "vinisou@gmail.com", "(47)76231-4270", "51", 1),
+("João Pedro", "joaopedro@gmail.com", "(27)92257-4770", "62", 1),
+("Marisa Silva", "marisilva@gmail.com", "(37)96417-0970", "25", 2),
+("Joana Olivia", "joanaolivia.com", "(47)91217-2312", "40", 2),
+("Larissa Cristina", "laricris@gmail.com", "(12)92211-3570", "30", 1),
+("Ana Souza", "aninhasouza@gmail.com", "(54)65217-2321", "24", 2),
+("Bruna Silva", "brusilva@gmail.com", "(27)86312-3170", "29", 1),
+("Heloisa Duarte", "heloduarte@gmail.com", "(47)83217-2370", "36", 2);
+
+insert into ong (email_ong, telefone_ong, nome_ong) values
+('cachorrinhostristes@gmail.com', '(11)96027-2530', 'Cachorrinhos Solitários'),
+('floresdojardim@gmail.com', '(48)90123-4341', 'Flores do Jardim'),
+('engenheiroscomfronteiras@gmail.com', '(31)94953-3096', 'Engenheiros com Fronteiras'),
+('bibirecordacoes@gmail.com', '(81)91981-3925', 'Bibi Recordações'),
+('progsemlimites@gmail.com', '(83)93206-2383', 'Programação sem limites'),
+('onepiece@gmail.com', '(65)90883-5414', 'One Piece '),
+('carrosadoidados@gmail.com', '(88)92414-6047', 'Carros Adoidados'),
+('amazoniasegura@gmail.com', '(92)95504-6399', 'Amazônia Segura'),
+('localsafe@gmail.com', '(21)93171-3863', 'Locas Safe'),
+('bancofuturo@gmail.com', '(91)99648-4399', 'Banco Futuro');
