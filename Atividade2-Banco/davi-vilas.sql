@@ -137,8 +137,21 @@ insert into midia (titulo_midia, caminho_midia, cod_postagem) value
 ('Banco Futuro', 'C:\Users\joseh\OneDrive\Área de Trabalho\Projeto Integrador\Projeto Integrador\Projeto Integrador\img\banco', 10);
 
 
-insert into comenta(texto_coment dathora_coment, cod_usuario, cod_postagem) values
-()
+-- insert into comenta
+
+insert into comenta (texto_comentario, cod_usuario, cod_postagem) values
+('Cachorrinhos solitários', 1, 1),
+('Flores do Jardim', 2, 2),
+('Engenheiros com Fronteiras', 3, 3),
+('Bibi Recordações', 4, 4),
+('Programação sem limites', 5, 5),
+('One Piece', 6, 6),
+('Carros Adoidados', 7, 7),
+('Amazônia Segura', 8, 8),
+('Locas Safe', 9, 9),
+('Banco Futuro', 10, 10);
+
+-- insert into curtir
 
 insert into curtir (cod_usuario, cod_postagem) values
 (1, 1),
@@ -153,6 +166,8 @@ insert into curtir (cod_usuario, cod_postagem) values
 (10, 10);
 
 
+-- insert into voluntario
+
 insert into voluntario (cod_usuario, cod_ong) values
 (1, 1),
 (2, 2),
@@ -165,14 +180,16 @@ insert into voluntario (cod_usuario, cod_ong) values
 (9, 9),
 (10, 10);
 
-insert into doacao (valor_doacao, data_doacao, cod_usuario, cod_ong) values
-(100, '2021-05-01', 1, 1),
-(200, '2021-05-02', 2, 2),
-(300, '2021-05-03', 3, 3),
-(400, '2021-05-04', 4, 4),
-(500, '2021-05-05', 5, 5),
-(600, '2021-05-06', 6, 6),
-(700, '2021-05-07', 7, 7),
-(800, '2021-05-08', 8, 8),
-(900, '2021-05-09', 9, 9),
-(1000, '2021-05-10', 10, 10);
+-- insert into doacao
+
+insert into doacao (valor_doacao, cod_usuario, cod_ong) values
+(100, 1, 1),
+(200, 2, 2),
+(300, 3, 3),
+(400, 4, 4),
+(500, 5, 5),
+(600, 6, 6),
+(700, 7, 7),
+(800, 8, 8),
+(900, 9, 9),
+(1000, 10, 10);
