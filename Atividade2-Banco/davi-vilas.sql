@@ -62,7 +62,7 @@ FOREIGN KEY(cod_usuario) REFERENCES usuario (cod_usuario)
 CREATE TABLE voluntario (
 cod_ong int not null,
 cod_usuario int not null,
-dt_voluntario date default current_date(),
+dt_voluntario date,
 FOREIGN KEY(cod_ong) REFERENCES ong (cod_ong),
 FOREIGN KEY(cod_usuario) REFERENCES usuario (cod_usuario)
 );
@@ -70,7 +70,7 @@ FOREIGN KEY(cod_usuario) REFERENCES usuario (cod_usuario)
 CREATE TABLE doacao (
 cod_ong int not null,
 cod_usuario int not null,
-dt_doacao date default current_date(),
+dt_doacao date,
 valor_doacao decimal(10,2) not null,
 FOREIGN KEY(cod_ong) REFERENCES ong (cod_ong),
 FOREIGN KEY(cod_usuario) REFERENCES usuario (cod_usuario)
@@ -85,16 +85,16 @@ insert into tipo_usuario (desc_tipuser) values
 ('Administrador');
 
 insert into usuario (nome, email, telefone, idade, cod_tipuser) values
-("José Henrique", "josehenri@gmail.com", "(11)96887-4330", "20", 2),
-("Lucas Oliveira", "lucasoli@gmail.com", "(47)86217-2370", "32", 1),
-("Vinicius Souza", "vinisou@gmail.com", "(47)76231-4270", "51", 1),
-("João Pedro", "joaopedro@gmail.com", "(27)92257-4770", "62", 1),
-("Marisa Silva", "marisilva@gmail.com", "(37)96417-0970", "25", 2),
-("Joana Olivia", "joanaolivia.com", "(47)91217-2312", "40", 2),
-("Larissa Cristina", "laricris@gmail.com", "(12)92211-3570", "30", 1),
-("Ana Souza", "aninhasouza@gmail.com", "(54)65217-2321", "24", 2),
-("Bruna Silva", "brusilva@gmail.com", "(27)86312-3170", "29", 1),
-("Heloisa Duarte", "heloduarte@gmail.com", "(47)83217-2370", "36", 2);
+('José Henrique', 'josehenri@gmail.com', '(11)96887-4330', '20', 2),
+('Lucas Oliveira', 'lucasoli@gmail.com', '(47)86217-2370', '32', 1),
+('Vinicius Souza', 'vinisou@gmail.com', '(47)76231-4270', '51', 1),
+('João Pedro', 'joaopedro@gmail.com', '(27)92257-4770', '62', 1),
+('Marisa Silva', 'marisilva@gmail.com', '(37)96417-0970', '25', 2),
+('Joana Olivia', 'joanaolivia.com', '(47)91217-2312', '40', 2),
+('Larissa Cristina', 'laricris@gmail.com', '(12)92211-3570', '30', 1),
+('Ana Souza', 'aninhasouza@gmail.com', '(54)65217-2321', '24', 2),
+('Bruna Silva', 'brusilva@gmail.com', '(27)86312-3170', '29', 1),
+('Heloisa Duarte', 'heloduarte@gmail.com', '(47)83217-2370', '36', 2);
 
 insert into ong (email_ong, telefone_ong, nome_ong) values
 ('cachorrinhostristes@gmail.com', '(11)96027-2530', 'Cachorrinhos Solitários'),
@@ -122,7 +122,6 @@ insert into postagem (titulo_postagem, categoria, texto_postagem, cod_usuario, c
 ('Locas Safe', 'Segurança', 'Precisamos de ajuda para cuidar das locas safe', 9, 9),
 ('Banco Futuro', 'Educação', 'Precisamos de ajuda para cuidar do banco futuro', 10, 10);
 
--- insert into midia
 
 insert into midia (titulo_midia, caminho_midia, cod_postagem) value 
 ('Cachorrinhos solitários', 'C:\Users\joseh\OneDrive\Área de Trabalho\Projeto Integrador\Projeto Integrador\Projeto Integrador\img\cachorrinhos.jpg', 1),
@@ -137,21 +136,20 @@ insert into midia (titulo_midia, caminho_midia, cod_postagem) value
 ('Banco Futuro', 'C:\Users\joseh\OneDrive\Área de Trabalho\Projeto Integrador\Projeto Integrador\Projeto Integrador\img\banco', 10);
 
 
--- insert into comenta
 
-insert into comenta (texto_comentario, cod_usuario, cod_postagem) values
-('Cachorrinhos solitários', 1, 1),
-('Flores do Jardim', 2, 2),
-('Engenheiros com Fronteiras', 3, 3),
-('Bibi Recordações', 4, 4),
+insert into comenta (texto_coment, cod_usuario, cod_postagem) values
+('Muito bom', 1, 1),
+('Péssimo atendimento', 2, 2),
+('Engenheiros com Fronteiras ótimo ', 3, 3),
+('Bibi Recordações lucrando muito', 4, 4),
 ('Programação sem limites', 5, 5),
-('One Piece', 6, 6),
-('Carros Adoidados', 7, 7),
-('Amazônia Segura', 8, 8),
-('Locas Safe', 9, 9),
-('Banco Futuro', 10, 10);
+('One Piece não encontrado ainda', 6, 6),
+('Carros Adoidados são mansos ', 7, 7),
+('Amazônia Segura não esta segura', 8, 8),
+('Local Safe não guarda nada', 9, 9),
+('Banco Futuro é antigo', 10, 10);
 
--- insert into curtir
+
 
 insert into curtir (cod_usuario, cod_postagem) values
 (1, 1),
@@ -165,31 +163,28 @@ insert into curtir (cod_usuario, cod_postagem) values
 (9, 9),
 (10, 10);
 
+ 
+insert into voluntario (cod_usuario, cod_ong, dt_voluntario) values
+(1, 1, '2022-03-12'),
+(2, 2, '2022-07-09'),
+(3, 3, '2022-04-08'),
+(4, 4, '2022-12-03'),
+(5, 5, '2022-05-04'),
+(6, 6, '2022-01-07'),
+(7, 7, '2022-08-23'),
+(8, 8, '2022-09-10'),
+(9, 9, '2022-05-11'),
+(10, 10, '2022-04-20');
 
--- insert into voluntario
 
-insert into voluntario (cod_usuario, cod_ong) values
-(1, 1),
-(2, 2),
-(3, 3),
-(4, 4),
-(5, 5),
-(6, 6),
-(7, 7),
-(8, 8),
-(9, 9),
-(10, 10);
-
--- insert into doacao
-
-insert into doacao (valor_doacao, cod_usuario, cod_ong) values
-(100, 1, 1),
-(200, 2, 2),
-(300, 3, 3),
-(400, 4, 4),
-(500, 5, 5),
-(600, 6, 6),
-(700, 7, 7),
-(800, 8, 8),
-(900, 9, 9),
-(1000, 10, 10);
+insert into doacao (valor_doacao, cod_usuario, cod_ong, dt_doacao) values
+(100, 1, 1, '2022-04-10'),
+(200, 2, 2, '2022-01-20'),
+(300, 3, 3, '2022-02-10'),
+(400, 4, 4, '2022-07-09'),
+(500, 5, 5, '2022-06-27'),
+(600, 6, 6, '2022-09-20'),
+(700, 7, 7, '2022-10-10'),
+(800, 8, 8, '2022-12-03'),
+(900, 9, 9, '2022-11-04'),
+(1000, 10, 10,'2022-04-25');
